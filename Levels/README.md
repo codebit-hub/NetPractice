@@ -11,7 +11,7 @@ The primary goal of this project is to develop a practical understanding of how 
 *   Configuring static routing tables, default gateways (`0.0.0.0/0`), and specific network routes.
 *   Troubleshooting multi-hop routing issues, particularly identifying and fixing "Return Path" failures.
 *   Understanding the mechanics of switches (Layer 2) versus routers (Layer 3).
-*   Differentiating between Public and Private IP addresses and understand their routability rules across the Internet.
+*   Differentiating between Public and Private IP addresses and understanding their routability rules across the Internet.
 
 ## Instructions
 
@@ -23,7 +23,7 @@ The primary goal of this project is to develop a practical understanding of how 
 ## Levels Overview
 
 | Level | Topology | Core Skills Tested |
-| --- | --- | --- |
+| :---: | :--- | :--- |
 | **1** | 2 public hosts, `/24` & `/16` subnets | Basic IP addressing and CIDR boundaries. |
 | **2** | 2 private hosts, `/27` & `/30` subnets | Subnet allocation and minimizing host waste. |
 | **3** | 3 public hosts via a switch | Switch mechanics and shared local broadcast domains. |
@@ -42,5 +42,52 @@ In Level 8, the goal is to connect two hosts to the Internet through two chained
 ## Resources
 
 * **Networking Concepts:** TCP/IP 4-Layer model, OSI layers, subnet masks, default gateways, routing tables, and switches.
-* **References:** [Subnet IPv4 Calculator](https://subnetipv4.com/#learn), Wikipedia (IPv4, IP Address), and YouTube tutorials ([Network Direction](https://www.youtube.com/watch?v=s_Ntt6eTn94), [Subnetting Mastery](https://www.youtube.com/watch?v=CGmTvukObOw)).
-* **AI Usage:** I operate as a technical sounding board. For this project, I assisted in diagnosing multi-hop return path failures, explaining VLSM mechanics, determining non-overlapping IP boundaries and distinguishing between public and private IP constraints across the TCP/IP stack.
+* **References:**
+  1. [Subnet IPv4 Calculator](https://subnetipv4.com/#learn)
+  2. [YouTube tutorials: Network Direction](https://www.youtube.com/watch?v=s_Ntt6eTn94)
+  3. [Subnetting Mastery](https://www.youtube.com/watch?v=CGmTvukObOw)
+  4. Wikipedia (IPv4, IP Address)
+* **AI Usage:** I used an AI assistant as a technical sounding board. For this project, it assisted in diagnosing multi-hop return path failures, explaining VLSM mechanics, determining non-overlapping IP boundaries, and distinguishing between public and private IP constraints across the TCP/IP stack.
+
+## Implementation Steps
+1. Clear all editable fields.
+2. Connect hosts to their local router.
+3. Connect routers to each other.
+4. Set default routes pointing to the Internet.
+5. Configure specific return routes from the Internet back to the internal networks.
+
+---
+
+## Reference Tables
+
+### Reserved IP Addresses
+*Note: Only public IP addresses can be routed on the public Internet. Ensure no private or reserved blocks are leaked outward.*
+
+| Range | Designation | Description |
+| :--- | :--- | :--- |
+| `127.0.0.0/8` | Localhost | Used for loopback interfaces. |
+| `10.0.0.0/8` | Private (Class A) | Large private internal networks. |
+| `172.16-31.0.0/12` | Private (Class B) | Blocked from the public internet. |
+| `192.168.0.0/16` | Private (Class C) | Standard small/home private networks. |
+
+### IP Classes
+
+| Class | Range | Typical Scope |
+| :---: | :--- | :--- |
+| **A** | `1` - `126` | Large networks |
+| **B** | `128` - `191` | Medium networks |
+| **C** | `192` - `223` | Small networks |
+| **D** | `224` - `239` | Multicast groups |
+| **E** | `240` - `255` | Experimental |
+
+### Networking Models
+
+| Layer # | OSI Model | TCP/IP Model | Function / Examples |
+| :---: | :--- | :--- | :--- |
+| **7** | Application | **4.** Application | Source / Data Generation (HTTP, DNS) |
+| **6** | Presentation | | Formatting / Encryption (JPEG, SSL) |
+| **5** | Session | | Service / Connection Management |
+| **4** | Transport | **3.** Transport | Reliability / Ports (TCP, UDP) |
+| **3** | Network | **2.** Internet | IP Addresses / Routing |
+| **2** | Data Link | **1.** Link | MAC Addresses / Switches |
+| **1** | Physical | | Cables / Hardware / Bits |

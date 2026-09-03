@@ -1,3 +1,11 @@
+<div align="center">
+  <img src="https://img.shields.io/badge/42_Code-NetPractice-000000?style=for-the-badge&logo=42&logoColor=white" alt="42 Code" />
+  <img src="https://img.shields.io/badge/Score-100%25-success?style=for-the-badge" alt="Score - 100%" />
+  <img src="https://img.shields.io/badge/Completed-Sept_1,_2026-007EC6?style=for-the-badge" alt="Completed - Sept 1, 2026" />
+  <img src="https://img.shields.io/badge/Tech-TCP%2FIP_%7C_IPv4_%7C_VLSM_%7C_Routing-8A2BE2?style=for-the-badge" alt="Tech Stack" />
+</div>
+<br>
+
 *This project has been created as part of the 42 curriculum by dporhomo.*
 
 ## Description
